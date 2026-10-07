@@ -24,54 +24,55 @@ Run the SQL manually or use the installer. Fast Forward requires a few new table
 If you want to prep a level 60 frost mage, you might do the following:
 
 ```
-ff prepfor archaicprose 24 60
+ff prepfor archaicprose frost 60
 ```
 
-This creates a reservation for your account that waits for the creation of a new mage character. This allows you to choose the race and appearance of your character in-game. On accepting your new mage, the reservation will be claimed and your mage will be fast-forwarded to level 60.
+This creates a reservation for your account that waits for the creation of a new mage character. You can still choose the race and appearance of your character in-game. On accepting character creation your new mage, the reservation will be claimed and your mage will be fast-forwarded to level 60.
 
 |||
 |---|---|
 |![Image of character creation after selecting mage class](./assets/fastforward_creation.png)|![Image of character select screen with fast-forward mage](./assets/fastforward_created.png)|
 |![Image of fast-forward mage in-game with skills and items](./assets/fastforward_entergame.png)||
 
-### Spec Ids
+### Spec Ids & Aliases
 
-The current implementation uses a `specid` to make decisions about items. These values are provided to nearly all fast-forward commands.
+Nearly every fast-forward command requires a `specid` to make decisions about items. You can use either the numeric code or the string alias where a command calls for a `specid`.
 
-| Class | Spec | specid |
-| --- | --- | --- |
-| Warrior | Arms | 1 |
-| | Fury | 2 |
-| | Protection | 3 |
-| Paladin | Holy | 4 |
-| | Protection | 5 |
-| | Retribution | 6 |
-| Hunter | Beast Mastery | 7 |
-| | Marksmanship | 8 |
-| | Survival | 9 |
-| Rogue | Assassination | 10 |
-| | Combat | 11 |
-| | Subtlety | 12 |
-| Priest | Discipline | 13 |
-| | Holy | 14 |
-| | Shadow | 15 |
-| Death Knight | Blood | 16 |
-| | Frost | 17 |
-| | Unholy | 18 |
-| Shaman | Elemental | 19 |
-| | Enhancement | 20 |
-| | Restoration | 21 |
-| Mage | Arcane | 22 |
-| | Fire | 23 |
-| | Frost | 24 |
-| Warlock | Affliction | 25 |
-| | Demonology | 26 |
-| | Destruction | 27 |
-| Druid | Balance | 28 |
-| | Feral Combat (Cat) | 29 |
-| | Restoration | 30 |
-| | Feral Combat (Bear) | 99 |
+| Class | Spec | Alias | specid |
+| --- | --- | --- | --- |
+| Warrior | Arms | `arms` | 1 |
+| | Fury | `fury` | 2 |
+| | Protection | `prot` `protw` | 3 |
+| Paladin | Holy | `holy` `hpal` | 4 |
+| | Protection | `prot` `protp` | 5 |
+| | Retribution | `ret` | 6 |
+| Hunter | Beast Mastery | `bm` | 7 |
+| | Marksmanship | `mm` `marks` | 8 |
+| | Survival | `sv` | 9 |
+| Rogue | Assassination | `assassin` | 10 |
+| | Combat | `combat` | 11 |
+| | Subtlety | `subtlety` | 12 |
+| Priest | Discipline | `disc` | 13 |
+| | Holy | `holy` `hpriest` | 14 |
+| | Shadow | `shadow` | 15 |
+| Death Knight | Blood | `bdk` `blood` | 16 |
+| | Frost | `frost` `fdk` | 17 |
+| | Unholy | `uh` `uhdk` | 18 |
+| Shaman | Elemental | `ele` `elem` | 19 |
+| | Enhancement | `enh` | 20 |
+| | Restoration | `resto` `rsham` | 21 |
+| Mage | Arcane | `arc` | 22 |
+| | Fire | `fire` | 23 |
+| | Frost | `frost` | 24 |
+| Warlock | Affliction | `aff` `afflict` | 25 |
+| | Demonology | `demo` | 26 |
+| | Destruction | `destro` | 27 |
+| Druid | Balance | `bal` `boomy` | 28 |
+| | Feral Combat (Cat) | `feral` `cat` | 29 |
+| | Restoration | `resto` `tree` | 30 |
+| | Feral Combat (Bear) | `bear` `guardian` | 99 |
 
+Notice you can use certain terms like `frost` or `holy` as an alias despite it applying to multiple classes. The next character creation that matches the criteria will claim the reservation.
 
 ### Console
 
