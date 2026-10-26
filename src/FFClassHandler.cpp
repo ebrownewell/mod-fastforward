@@ -32,12 +32,16 @@ void FFClassHandler::LearnSkills(Player* p)
     p->UpdateSkillsToMaxSkillsForLevel();
 }
 
+bool FFClassHandler::rewardingClassQuest = false;
+
 bool FFClassHandler::TryCompleteNewQuest(Player* player, uint32 questId) {
     if (player->GetQuestStatus(questId) == QUEST_STATUS_NONE)
     {
         player->AddQuest(sObjectMgr->GetQuestTemplate(questId), nullptr);
         player->CompleteQuest(questId);
+        rewardingClassQuest = true;
         player->RewardQuest(sObjectMgr->GetQuestTemplate(questId), 0, player, false);
+        rewardingClassQuest = false;
         return true;
     }
     return false;

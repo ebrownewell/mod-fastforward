@@ -51,6 +51,10 @@ protected:
         }
     }
 public:
+    // True while TryCompleteNewQuest rewards a class quest, so its XP can be dropped
+    // (the character already has its target level).
+    static bool rewardingClassQuest;
+
     FFClassHandler(uint8 pLevel, FFSpec* spec)
     {
         specInfo = spec;

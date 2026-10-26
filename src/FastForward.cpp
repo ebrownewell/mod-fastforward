@@ -686,9 +686,24 @@ private:
     }
 };
 
+// The class quests a fast-forwarded character gets are rewarded at its target level, where
+// their XP would carry it several levels past the level it was prepared for.
+class FF_ClassQuestXP : public PlayerScript
+{
+public:
+    FF_ClassQuestXP() : PlayerScript("FF_ClassQuestXP", { PLAYERHOOK_ON_QUEST_COMPUTE_EXP }) {}
+
+    void OnPlayerQuestComputeXP(Player* /*player*/, Quest const* /*quest*/, uint32& xpValue) override
+    {
+        if (FFClassHandler::rewardingClassQuest)
+            xpValue = 0;
+    }
+};
+
 void AddFastForwardScripts()
 {
     new FF_WorldScript();
     new FF_Character_Prep();
+    new FF_ClassQuestXP();
     new FF_Command();
 }
